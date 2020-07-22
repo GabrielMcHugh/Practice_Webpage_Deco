@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#ff00b7">
+	
+	<title>Virtual Activities</title>
+	<meta name="description" content="DECO1400 Website | Virtual Activities">
+  	<meta name="author" content="Gabriel McHugh - S4352299">
+
+  	<link href="main.css" rel="stylesheet" type="text/css">
+
+</head>
+<body class="preload" id="preload">
+	<header class="top-header">
+	  	<ul>
+	  		<li><a class="logo" href="index.html">CityScape<div id="cursor"></div></a></li>
+	  		<i class="hamburgericon" onclick="openmenu()">
+	  			<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+	  		</i>
+
+	  		<li><a id="registerlink" href="#" onclick="openModal('register-modal')">Register</a></li>
+	  		<li><a id="signinlink" href="#" onclick="openModal('signupmodal')">Sign In</a></li>
+	  	</ul>
+	</header>
+	<nav class="bottom-header" id="stickyheader">
+		  	<ul>
+			  	<li><a href="booking.html">BOOKINGS</a></li>
+			  	<li><a href="virtualactivities.html">VIRTUAL ACTIVITIES</a></li>
+			  	<li><a href="whatson.html">What's on</a></li>
+			  	<li><a href="contactus.html">Contact Us</a></li>
+			  	<li><a href="about.html">About</a></li>
+		  	</ul>
+	</nav>
+	<section class="activities">
+		<div class="activities-container" onclick="onClick('royale')">
+			<img src="cyberpunk.jpg" alt="neon city street" style="width:100px">
+			<div class="centered-text"><h2>Cyberscape Royale</h2></div>
+		</div>
+		<div class="activities-container" onclick="onClick('minigames')">
+			<img src="dystopia.jpg" alt="foggy city" style="width:100px">
+			<div class="centered-text"><h2>Minigames</h2></div>
+		</div>
+		<div class="activities-container" onclick="onClick('openworld')">
+			<img src="synthwave.jpg" alt="Synthwave sunrise" style="width:100px">
+			<div class="centered-text"><h2>Open World</h2></div>
+		</div> 	    
+	</section>
+	<section class="parallax parallax2 vc-right" >
+		<div class="vwa-section" id="royale">	
+			<h1 class="neon-gradient">Cyberspace Royale</h1>
+			<p>A Battle Royale of epic proprotions. Fight, Loot, WIN! Every 24 hours a new round of begins. Contestants are randomly scattered across the city. Theres only one rule. Be the last one standing. Scavenge for weapons from randomly hidden crates. Eliminate enemy players before they eliminate you. Move quickly, before the map closes around you</p>
+			<h3>The winner recieves 50,000 CS Points!</h3>
+		</div>
+	</section>
+	<section class="parallax parallax3 vc-left" >
+		<div class="vwa-section" id="minigames">	
+			<h1 class="neon-gradient">Minigames</h1>
+			<p>Racing across vector-based deserts, Parkouring voxel-generated towers, Solving mind-bending puzzles, the Cityscape is seeded with millions of carefully crafted minigames that will suprise you, engage you and keep you on the edge of your seat during your stay. Who needs physical sustainence when your having this much fun!</p>
+			<h6>Each completed minigame has the chance of dropping a lootboxing which has an even rarer chance of winning a golden ticket!</h6>
+		</div>
+	</section>
+	<section class="parallax parallax4 vc-right" >
+		<div class="vwa-section" id="openworld">	
+			<h1 class="neon-gradient">Open World</h1>
+			<p>Whats that? You thought that was it? Well think again, the Cityscape is a fully immersive VR experience. That means that you and your loved onces can do everything that you would do in real life. Want to stay at home and relax? Want to go to the pool and try break the 100m freestroke record (Goodluck!) Want to knock back a few beers and watch the game with you buddies! No problem! All that and more in the matrix. </p>
+			<h3>So immersive you'll lose touch with reality!</h3>
+		</div>
+	</section>
+	<footer>
+		<hr>
+		<div class="bottom-flex">
+			<div class="col1">
+				<h1 class="logo">Cityscape</h1>
+				<ul>
+					<li>Cityscape Industries Queensland</li>
+					<li>675 Northam Drive CBD 4032 Queensland</li>
+					<li>T: 555 555</li>
+					<li>E: info@cityscape.com.au</li>
+				</ul>
+			</div>
+			<div class="col2">
+				<label for="guestemail" class="field-label">Email Address</label>
+				<input type="email" name="guestemail" id="guestemail" class="gui-input" required="" placeholder="john@something.com">
+				<button>Subscribe</button>
+			</div>
+		</div>
+	</footer>
+	<div id="signupmodal" class="modal">
+		<span onclick="closeModal('signupmodal')" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" name="signin">
+			<div class="modal-container">
+				<h1>Sign In</h1>
+				<hr>
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+
+				<div class="clearfix">
+					<button type="button" onclick="closeModal('signupmodal')" class="cancelbtn">Cancel</button>
+					<button type="button" class="signup" onclick="checkFormat('signupmodal', document.signin.email, document.signin.psw)">Sign Up</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div id="register-modal" class="modal">
+		<span onclick="closeModal('register-modal')" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" name="registration">
+			<div class="modal-container">
+				<h1>Register</h1>
+				<p>Your password must have at least six letters, one uppercase character or one number</p>
+				<hr>
+
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" id="psw" required>	
+
+				<label for="psw-repeat"><b>Repeat Password</b></label>
+				<input type="password" placeholder="Repeat Password" name="pswrepeat" id="psw-repeat" required>
+
+				<button type="button" onclick="closeModal('register-modal')" class="cancelbtn">Cancel</button>
+				<button type="button" class="registerbtn" onclick="checkRegistrationFormat('register-modal', document.registration.email, document.registration.psw, document.registration.pswrepeat)">Register</button>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="mobiledropdown.js"></script>
+	<script type="text/javascript" src="modal.js"></script>
+	<script type="text/javascript" src="preload.js"></script>
+	<script type="text/javascript" src="scrolltoelement.js"></script>
+</body>
+</html>

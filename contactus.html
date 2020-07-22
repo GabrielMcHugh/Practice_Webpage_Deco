@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#ff00b7">
+	
+	<title>Contact Us</title>
+	<meta name="description" content="DECO1400 Website | Contact US">
+  	<meta name="author" content="Gabriel McHugh - S4352299">
+
+  	<link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Archivo:500|Open+Sans:300,700" rel="stylesheet">
+
+  	<link href="main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header class="top-header">
+	  	<ul>
+	  		<li><a class="logo" href="index.html">CityScape<div id="cursor"></div></a></li>
+	  		<i class="hamburgericon" onclick="openmenu()">
+	  			<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+	  		</i>
+
+	  		<li><a id="registerlink" href="#" onclick="openModal('register-modal')">Register</a></li>
+	  		<li><a id="signinlink" href="#" onclick="openModal('signupmodal')">Sign In</a></li>
+	  	</ul>
+	</header>
+	<nav class="bottom-header" id="stickyheader">
+		  	<ul>
+			  	<li><a href="booking.html">BOOKINGS</a></li>
+			  	<li><a href="virtualactivities.html">VIRTUAL ACTIVITIES</a></li>
+			  	<li><a href="whatson.html">What's on</a></li>
+			  	<li><a href="contactus.html">Contact Us</a></li>
+			  	<li><a href="about.html">About</a></li>
+		  	</ul>
+	</nav>
+	<section class="locationdetails">
+		<article>
+			<h1>Contact Details</h1>
+				<ul>
+					<li>Cityscape Industries Queensland</li>
+					<li>675 Northam Drive CBD 4032 Queensland</li>
+					<br/>
+					<p>Carparking is accessible via the North Docks</p>
+					<br/>
+					<li>T: 555 555</li>
+					<li>E: info@cityscape.com.au</li>
+				</ul>
+		</article>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14159.766292159009!2d153.02296214277058!3d-27.471078276950497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sau!4v1591752002661!5m2!1sen!2sau" width="200" height="150" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+	</section>
+	<section class="feedback">
+		<div class="feedback-container">
+			<div class="form-image"></div>
+			<form>
+				<h3>Contact & Feedback Form</h3>
+				<div class="feedback-columns">
+					<label for="Firstname" class="field-label">Please Enter Your First Name</label>
+					<input type="text" name="Firstname" id="Firstname" class="gui-input" placeholder="Firstname">
+					<label for="Lastname" class="field-label">Please Enter Your Last Name</label>
+					<input type="text" name="Lastname" id="Lastname" class="gui-input" placeholder="Lastname">
+				</div>
+				<div class="feedback-columns">
+					<label for="Email" class="field-label">Please Enter Your Email</label>
+					<input type="text" name="Email" id="Email" class="gui-input" placeholder="Email">
+					<label for="Phone" class="field-label">Please Enter Your Phone</label>
+					<input type="text" name="Phone" id="Phone" class="gui-input" placeholder="Phone">
+				</div>
+				<div class="textarea-container">
+					<label for="Comments" class="field-label">Please Enter Your Comments</label>
+					<textarea name="Comments" id="Comments" class="gui-input comments" placeholder="Comments..."></textarea>
+					<button type="button" class="button" id="confirm">Submit</button>
+				</div>
+			</form>
+		</div>
+	</section>
+	<footer>
+		<hr>
+		<div class="bottom-flex">
+			<div class="col1">
+				<h1 class="logo">Cityscape</h1>
+				<ul>
+					<li>Cityscape Industries Queensland</li>
+					<li>675 Northam Drive CBD 4032 Queensland</li>
+					<li>T: 555 555</li>
+					<li>E: info@cityscape.com.au</li>
+				</ul>
+			</div>
+			<div class="col2">
+				<label for="guestemail" class="field-label">Email Address</label>
+				<input type="email" name="guestemail" id="guestemail" class="gui-input" required="" placeholder="john@something.com">
+				<button>Subscribe</button>
+			</div>
+		</div>
+	</footer>
+	<div id="signupmodal" class="modal">
+		<span onclick="closeModal('signupmodal')" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" name="signin">
+			<div class="modal-container">
+				<h1>Sign In</h1>
+				<hr>
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+
+				<div class="clearfix">
+					<button type="button" onclick="closeModal('signupmodal')" class="cancelbtn">Cancel</button>
+					<button type="button" class="signup" onclick="checkFormat('signupmodal', document.signin.email, document.signin.psw)">Sign Up</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div id="register-modal" class="modal">
+		<span onclick="closeModal('register-modal')" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" name="registration">
+			<div class="modal-container">
+				<h1>Register</h1>
+				<p>Your password must have at least six letters, one uppercase character or one number</p>
+				<hr>
+
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" id="psw" required>	
+
+				<label for="psw-repeat"><b>Repeat Password</b></label>
+				<input type="password" placeholder="Repeat Password" name="pswrepeat" id="psw-repeat" required>
+
+				<button type="button" onclick="closeModal('register-modal')" class="cancelbtn">Cancel</button>
+				<button type="button" class="registerbtn" onclick="checkRegistrationFormat('register-modal', document.registration.email, document.registration.psw, document.registration.pswrepeat)">Register</button>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="mobiledropdown.js"></script>
+	<script type="text/javascript" src="modal.js"></script>
+</body>
+</html>

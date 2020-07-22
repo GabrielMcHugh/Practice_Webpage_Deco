@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#ff00b7">
+	
+	<title>Home</title>
+	<meta name="description" content="DECO1400 Website | Home">
+  	<meta name="author" content="Gabriel McHugh - S4352299">
+
+  	<link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Archivo:500|Open+Sans:300,700" rel="stylesheet">
+
+  	<link href="main.css" rel="stylesheet" type="text/css">
+  	<link href="slideshow.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header class="top-header">
+	  	<ul>
+	  		<li><a class="logo" href="index.html">CityScape<div id="cursor"></div></a></li>
+	  		<i class="hamburgericon" onclick="openmenu()">
+	  			<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+	  		</i>
+
+	  		<li><a id="registerlink" href="#" onclick="openModal('register-modal')">Register</a></li>
+	  		<li><a id="signinlink" href="#" onclick="openModal('signupmodal')">Sign In</a></li>
+	  	</ul>
+	</header>
+	<nav class="bottom-header" id="stickyheader">
+		  	<ul>
+			  	<li><a href="booking.html">BOOKINGS</a></li>
+			  	<li><a href="virtualactivities.html">VIRTUAL ACTIVITIES</a></li>
+			  	<li><a href="whatson.html">What's on</a></li>
+			  	<li><a href="contactus.html">Contact Us</a></li>
+			  	<li><a href="about.html">About</a></li>
+		  	</ul>
+	</nav>
+	<section>
+		<h1 class="eventstitle">
+			<span id="titlestart">Latest Events</span> 
+			<div id="titleseperator">
+				<span id="titlemiddle">in The Virtual</span>
+				<span id="titlecityscape">Cityscape</span>
+			</div>
+		</h1>
+		<article class="events">
+			<div class="left">
+				<img src="./images/christmas.jpg" alt="snowy city street" width="100px">
+			</div>
+			<div class="right">
+				<h1>Christmas Snowball Fight</h1>
+				<p>Every Christmas the studio redecorates the Cityscape with wintery goodness. Snow so real that you'll be cursing us for real when your hand's freeze. All in good holiday spirits. Make sure to engage in the daily snowball fight. Winner gets a thousand CS points</p>
+			</div>
+		</article>
+		<article class="events">
+			<div class="left">
+				<img src="./images/newyears.jpg" alt="fireworks over a city" width="100px">
+			</div>
+			<div class="right">
+				<h1>New Years Fireworks</h1>
+				<p>Join in as we light up the sky! Pilot an aircraft as fireworks explode above Cityscape and countdown as the new year rolls around. When the clock reaches 00:00 a unique cutscene will play. That's right, a cutscene. A completely original idea.</p>
+			</div>
+		</article>
+		<article class="events">
+			<div class="left">
+				<img src="./images/chinese.jpg" alt="string of paper lanterns" width="100px">
+			</div>
+			<div class="right">
+				<h1>Chinese New Year</h1>
+				<p>Since the chinese new year went mainstream hundreds of animals have been added to its catalogue. Join us this year in celebrating the Year of the Platypus Bear. A rare species not yet seen in the wild, but were hoping that changes! Load the unique platypus bear outfit and join in on the fun!</p>
+			</div>
+		</article>
+	</section>
+	<footer>
+		<hr>
+		<div class="bottom-flex">
+			<div class="col1">
+				<h1 class="logo">Cityscape</h1>
+				<ul>
+					<li>Cityscape Industries Queensland</li>
+					<li>675 Northam Drive CBD 4032 Queensland</li>
+					<li>T: 555 555</li>
+					<li>E: info@cityscape.com.au</li>
+				</ul>
+			</div>
+			<div class="col2">
+				<label for="guestemail" class="field-label">Email Address</label>
+				<input type="email" name="guestemail" id="guestemail" class="gui-input" required="" placeholder="john@something.com">
+				<button>Subscribe</button>
+			</div>
+		</div>
+	</footer>
+	<div id="signupmodal" class="modal">
+		<span onclick="closeModal('signupmodal')" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" name="signin">
+			<div class="modal-container">
+				<h1>Sign In</h1>
+				<hr>
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+
+				<div class="clearfix">
+					<button type="button" onclick="closeModal('signupmodal')" class="cancelbtn">Cancel</button>
+					<button type="button" class="signup" onclick="checkFormat('signupmodal', document.signin.email, document.signin.psw)">Sign Up</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div id="register-modal" class="modal">
+		<span onclick="closeModal('register-modal')" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" name="registration">
+			<div class="modal-container">
+				<h1>Register</h1>
+				<p>Your password must have at least six letters, one uppercase character or one number</p>
+				<hr>
+
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" id="psw" required>	
+
+				<label for="psw-repeat"><b>Repeat Password</b></label>
+				<input type="password" placeholder="Repeat Password" name="pswrepeat" id="psw-repeat" required>
+
+				<button type="button" onclick="closeModal('register-modal')" class="cancelbtn">Cancel</button>
+				<button type="button" class="registerbtn" onclick="checkRegistrationFormat('register-modal', document.registration.email, document.registration.psw, document.registration.pswrepeat)">Register</button>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="mobiledropdown.js"></script>
+	<script type="text/javascript" src="modal.js"></script>
+</body>
+</html>

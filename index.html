@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#ff00b7">
+	
+	<title>Home</title>
+	<meta name="description" content="DECO1400 Website | Home">
+  	<meta name="author" content="Gabriel McHugh - S4352299">
+
+  	<link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Archivo:500|Open+Sans:300,700" rel="stylesheet">
+
+  	<link href="main.css" rel="stylesheet" type="text/css">
+  	<link href="slideshow.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header class="top-header">
+	  	<ul>
+	  		<li><a class="logo" href="index.html">CityScape<div id="cursor"></div></a></li>
+	  		<i class="hamburgericon" onclick="openmenu()">
+	  			<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+	  		</i>
+
+	  		<li><a id="registerlink" href="#" onclick="openModal('register-modal')">Register</a></li>
+	  		<li><a id="signinlink" href="#" onclick="openModal('signupmodal')">Sign In</a></li>
+	  	</ul>
+	</header>
+	<nav class="bottom-header" id="stickyheader">
+		  	<ul>
+			  	<li><a href="booking.html">BOOKINGS</a></li>
+			  	<li><a href="virtualactivities.html">VIRTUAL ACTIVITIES</a></li>
+			  	<li><a href="whatson.html">What's on</a></li>
+			  	<li><a href="contactus.html">Contact Us</a></li>
+			  	<li><a href="about.html">About</a></li>
+		  	</ul>
+	</nav>
+	<div class="slideshow">
+		<img class="mySlides" src="dystopia.jpg" alt="a foggy city" width="100px">
+		<img class="mySlides" src="cyberpunk.jpg" alt="a blue pink neon street" width="100px">
+		<img class="mySlides" src="./images/neon1.jpg" alt="a street filled with signs" width="100px">
+		<img class="mySlides" src="./images/neon2.jpg" alt="a street at night" width="100px">
+		<img class="mySlides" src="./images/neon3.jpg" alt="a city at night" width="100px">
+		<button class="prev" onclick="plusDivs(-1)">&#10094;</button>
+		<button class="next" onclick="plusDivs(+1)">&#10095;</button>
+	</div>
+	<section class="reservation">
+		<h2>Book a Reservation</h2>
+		<div class="reservation-container">
+			<div class="left-column">
+				<label for="firstid">First Night:</label>
+		  		<input type="date" id="firstid" name="firstid">
+	  		</div>
+	  		<div class="right-column">
+		  		<label for="lastid">Last Night:</label>
+		  		<input type="date" id="lastid" name="lastid">
+		  	</div>
+		  	<div class="end-column">
+		  		<a href="booking.html">View Rates</a>
+		  	</div>
+		</div>
+	</section>
+	<div class="parallax index-parallax"></div>
+	<section class="hotel-description">
+			<h1 class="neon-gradient"><center>A 5 Star Virtual Experience</center></h1>
+		<div class="quadrant-container">
+			<div class="quadrant upper-left">
+				<div class="buffer"></div>
+				<h2 >A Unique Experience</h2>
+				<p>The Cityscape is the result of cutting edge simulation technology. After over 4 years of design and $1 Billion in development, it is the most ambitious and inovative Virtual Reality project that mankind has ever achieved and it has been engineered with one purpose in mind, to provide you with entertainment.</p>
+				<br>
+				<a href="virtualactivities.html"><b>Browse Activities</b></a>
+			</div>
+			<div class="quadrant upper-right">
+				<img src="./images/neonsquare2.jpg" alt="neon city square at night">
+			</div>
+			<div class="quadrant lower-left">
+				<img src="./images/neon4.jpg" alt="long exposure of city and highway">
+			</div>
+			<div class="quadrant lower-right">
+				<img src="cyberpunk.jpg" alt="neon city street">
+			</div>
+		</div>
+	</section>
+	<article class="lower-description">
+		<div>
+			<h2 class="neon-gradient">The Peak Virtual Hotel Experience</h2>
+			<p>Cityscape has been nominated for hundreds of awards and reigns as the paragon online hotel experience. CityScape is a once in a liftime virtual gaming experience. Fraught with excitement and jam-packed with endlessly replayable content, you would be hardpressed to a find a more addictive and life-defining experience such as this at any other virtual hotel. If you and your loved ones want to experience the best that the electronic realm has to offer, book yourself a datalink and hook yourself into the mainframe!</p>
+		</div>
+		<img src="synthwave.jpg" alt="synthwave sunrise">
+	</article>
+	<footer>
+		<hr>
+		<div class="bottom-flex">
+			<div class="col1">
+				<h1 class="logo">Cityscape</h1>
+				<ul>
+					<li>Cityscape Industries Queensland</li>
+					<li>675 Northam Drive CBD 4032 Queensland</li>
+					<li>T: 555 555</li>
+					<li>E: info@cityscape.com.au</li>
+				</ul>
+			</div>
+			<div class="col2">
+				<label for="guestemail" class="field-label">Email Address</label>
+				<input type="email" name="guestemail" id="guestemail" class="gui-input" required="" placeholder="john@something.com">
+				<button>Subscribe</button>
+			</div>
+		</div>
+	</footer>
+	<div id="signupmodal" class="modal">
+		<span onclick="closeModal('signupmodal')" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" name="signin">
+			<div class="modal-container">
+				<h1>Sign In</h1>
+				<hr>
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+
+				<div class="clearfix">
+					<button type="button" onclick="closeModal('signupmodal')" class="cancelbtn">Cancel</button>
+					<button type="button" class="signup" onclick="checkFormat('signupmodal', document.signin.email, document.signin.psw)">Sign Up</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div id="register-modal" class="modal">
+		<span onclick="closeModal('register-modal')" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" name="registration">
+			<div class="modal-container">
+				<h1>Register</h1>
+				<p>Your password must have at least six letters, one uppercase character or one number</p>
+				<hr>
+
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" id="psw" required>	
+
+				<label for="psw-repeat"><b>Repeat Password</b></label>
+				<input type="password" placeholder="Repeat Password" name="pswrepeat" id="psw-repeat" required>
+
+				<button type="button" onclick="closeModal('register-modal')" class="cancelbtn">Cancel</button>
+				<button type="button" class="registerbtn" onclick="checkRegistrationFormat('register-modal', document.registration.email, document.registration.psw, document.registration.pswrepeat)">Register</button>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="mobiledropdown.js"></script>
+	<script type="text/javascript" src="slideshow.js"></script>
+	<script type="text/javascript" src="modal.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#ff00b7">
+	
+	<title></title>
+	<meta name="description" content="DECO1400 Website | Booking">
+  	<meta name="author" content="Gabriel McHugh - S4352299">
+
+  	<link href="main.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+	<header class="top-header">
+	  	<ul>
+	  		<li><a class="logo" href="index.html">CityScape<div id="cursor"></div></a></li>
+	  		<i class="hamburgericon" onclick="openmenu()">
+	  			<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+	  		</i>
+	  		<li><a id="registerlink" href="#" onclick="openModal('register-modal')">Register</a></li>
+	  		<li><a id="signinlink" href="#" onclick="openModal('signupmodal')">Sign In</a></li>
+	  	</ul>
+	</header>
+	<nav class="bottom-header" id="stickyheader">
+		  	<ul>
+			  	<li><a href="booking.html">BOOKINGS</a></li>
+			  	<li><a href="virtualactivities.html">VIRTUAL ACTIVITIES</a></li>
+			  	<li><a href="whatson.html">What's on</a></li>
+			  	<li><a href="contactus.html">Contact Us</a></li>
+			  	<li><a href="about.html">About</a></li>
+		  	</ul>
+	</nav>
+	<section class="booking-form">
+		<div class="form-header">
+			<center><h2>Booking</h2></center>
+		</div>
+		<form class="form-body" method="post" name="booking" id="contact">
+	    	<div class="form-columns">
+	    		<div class="form-left">
+			 		<div class="section">
+					  	<label for="guestname">Please Enter Your Name</label>
+						<input type="text" name="guestname" id="guestname" class="gui-input" required="" placeholder="John Doe/Jane Doe">
+					</div>
+					<div class="frm-row">
+					    <label for="guestemail">Email Address</label>
+					    <input type="email" name="guestemail" id="guestemail" class="gui-input" required="" placeholder="john@something.com">
+					</div>
+					<div>
+					    <label for="guestelephone">Telephone / Mobile</label>
+					      <input type="text" name="guestelephone" id="guestelephone" class="gui-input" required="" placeholder="Telephone / Moble Number">
+					</div>
+		    		<div>
+		    			<label for="links">Data Links</label>
+			    		<select class="select" name="links" onchange="updatePrice()">
+			    			<option value="" selected disabled hidden>Choose here</option>
+						  	<option value="100">$100 Silver Datalink</option>
+						   	<option value="200">$200 Gold Datalink</option>
+						    <option value="300">$300 Platinum Datalink</option>
+						</select>
+			 		</div>
+				</div>
+				<div class="form-right">
+			 		<div>
+			 			<label for="connection">Data Connection</label>
+					  	<select class="select" name="connection" onchange="updatePrice()">
+			    			<option value="" selected disabled hidden>Choose here</option>
+						  	<option value="50">$50 One Tbps</option>
+						   	<option value="90">$90 Two Tbps</option>
+						    <option value="120">$120 Three Tbps</option>
+						</select>
+			 		</div>
+			 		<div>
+			 			<label for="package">Starter Package</label>
+			 			<select class="select" name="package" onchange="updatePrice()">
+			    			<option value="" selected disabled hidden>Choose here</option>
+						  	<option value="40">$40 Beginner Package</option>
+						   	<option value="100">$100 Intermediate Package</option>
+						    <option value="200">$200 Professional Package</option>
+						</select>
+			 		</div>
+			 		<div>
+			 			<label>Check in Date</label>
+			 			<input type="date" name="checkin">
+			 		</div>
+			 		<div>
+			 			<label>Checkout Date</label>
+			 			<input type="date" name="checkout">
+			 		</div>
+		 		</div>
+	     	</div>
+		    <div class="form-footer">
+		    	<center>
+		    		<h3>Total Cost:</h3>
+		    		<p id="cost">...</p>
+		    	</center>
+		        <button type="button" class="button" id="confirm" onclick="checkBookingFormat('confirmation-modal', document.booking.guestname, document.booking.guestemail, document.booking.guestelephone, document.booking.links, document.booking.connection, document.booking.package, document.booking.checkin, document.booking.checkout)">Confirm Booking</button>
+	        	<button type="reset" class="button">Cancel</button>
+		    </div>
+    	</form>
+	</section>
+	<div class="modal" id="myModal" >
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<p>Thank you for booking!</p>
+		</div>
+	</div>
+	<footer>
+		<hr>
+		<div class="bottom-flex">
+			<div class="col1">
+				<h1 class="logo">Cityscape</h1>
+				<ul>
+					<li>Cityscape Industries Queensland</li>
+					<li>675 Northam Drive CBD 4032 Queensland</li>
+					<li>T: 555 555</li>
+					<li>E: info@cityscape.com.au</li>
+				</ul>
+			</div>
+			<div class="col2">
+				<label for="guestemail" class="field-label">Email Address</label>
+				<input type="email" name="guestemail" id="guestemail" class="gui-input" required="" placeholder="john@something.com">
+				<button>Subscribe</button>
+			</div>
+		</div>
+	</footer>
+	<div id="signupmodal" class="modal">
+		<span onclick="closeModal('signupmodal')" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" name="signin">
+			<div class="modal-container">
+				<h1>Sign In</h1>
+				<hr>
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+
+				<div class="clearfix">
+					<button type="button" onclick="closeModal('signupmodal')" class="cancelbtn">Cancel</button>
+					<button type="button" class="signup" onclick="checkFormat('signupmodal', document.signin.email, document.signin.psw)">Sign Up</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div id="register-modal" class="modal">
+		<span onclick="closeModal('register-modal')" class="close" title="Close Modal">&times;</span>
+		<form class="modal-content" name="registration">
+			<div class="modal-container">
+				<h1>Register</h1>
+				<p>Your password must have at least six letters, one uppercase character or one number</p>
+				<hr>
+
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" id="psw" required>	
+
+				<label for="psw-repeat"><b>Repeat Password</b></label>
+				<input type="password" placeholder="Repeat Password" name="pswrepeat" id="psw-repeat" required>
+
+				<button type="button" onclick="closeModal('register-modal')" class="cancelbtn">Cancel</button>
+				<button type="button" class="registerbtn" onclick="checkRegistrationFormat('register-modal', document.registration.email, document.registration.psw, document.registration.pswrepeat)">Register</button>
+			</div>
+		</form>
+	</div>
+	<div id="confirmation-modal" class="modal">
+		<a href="index.html"><span onclick="closeModal('confirmation-modal')" class="close" title="Close Modal">&times;</span></a>
+		<form class="modal-content" action="action_page.php">
+			<div class="modal-container">
+				<p>Thank you!</p>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="mobiledropdown.js"></script>
+	<script type="text/javascript" src="modal.js"></script>
+	<script type="text/javascript" src="price.js"></script>
+</body>
+</html>
